@@ -33,6 +33,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <x-form.input name="address" label="Adresse" :value="$property->address" />
                 <x-form.select name="city_id" label="Ville" placeholder="Choisir une ville" :options="$cities" :value="$property->city_id" />
+                <x-form.select name="arrondissement_id" label="Arrondissement" placeholder="Choisir un arrondissement" :options="$arrondissements" :value="$property->arrondissement_id" />
                 <x-form.select name="status" label="Statut" placeholder="Choisir un statut" :options="[
                     'available' => 'Disponible',
                     'sold' => 'Vendu',

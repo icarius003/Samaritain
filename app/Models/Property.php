@@ -24,8 +24,10 @@ class Property extends Model
         'address',
         'category_id',
         'city_id',
+        'arrondissement_id',
         'status',
-        'verified'
+        'is_verify',
+        'is_active',
     ];
 
     protected $casts = [
@@ -45,6 +47,11 @@ class Property extends Model
     public function city()
     {
         return $this->belongsTo(City::class);
+    }
+
+    public function arrondissement()
+    {
+        return $this->belongsTo(Arrondissement::class);
     }
 
     public function amenities()

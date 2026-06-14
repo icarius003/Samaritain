@@ -6,9 +6,19 @@
     <x-blade-components::layout.container>
         <x-ui.hero-header :properties="$properties" />
 
-        <x-ui.value-section/>
-    
+        <x-ui.value-section />
+
         <x-ui.carousel :properties="$properties" />
+
+        <x-how-it-works />
+
+        <x-services />
+
+        <x-popular-districts />
+
+
+        <x-faq />
+        <x-why-no-commission />
 
         <section class="max-w-7xl mx-auto px-6 pb-12">
             <div class="bg-gray-900 rounded-2xl px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">

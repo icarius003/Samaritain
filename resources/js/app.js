@@ -1,4 +1,5 @@
 import Alpine from "alpinejs";
+import collapse from '@alpinejs/collapse';
 import {
     createIcons,
     Search,
@@ -64,7 +65,44 @@ import {
     Sofa,
     Flame,
     WashingMachine,
-    Dumbbell
+    Dumbbell,
+    Send,
+    XCircle,
+    PauseCircle,
+    PlayCircle,
+    HelpCircle,
+    CheckCircle,
+    CalendarX,
+    Check,
+    Ban,
+    Warehouse,
+    CalendarCheck,
+    KeyRound,
+    Landmark,
+    Store,
+    Building2,
+    ChartColumn,
+    Key,
+    House,
+    Save,
+    Copy,
+    Lightbulb,
+    Hourglass,
+    Clock,
+    EyeOff,
+    ChevronDown,
+    Funnel,
+    UserStar,
+    Repeat,
+    Award,
+    Mail,
+    Globe,
+    MessageCircle,
+    Folder,
+    Image,
+    Calendar,
+    Images,
+    Navigation
 } from "lucide";
 
 createIcons({
@@ -133,6 +171,44 @@ createIcons({
         Flame,
         WashingMachine,
         Dumbbell,
+        Send,
+        XCircle,
+        PauseCircle,
+        PlayCircle,
+        HelpCircle,
+        CheckCircle,
+        CalendarX,
+        Check,
+        Ban,
+        Warehouse,
+        CalendarCheck,
+        KeyRound,
+        Landmark,
+        Store,
+        Building2,
+        ChartColumn,
+        Key,
+        House,
+        Save,
+        Trash,
+        Copy,
+        Lightbulb,
+        Hourglass,
+        EyeOff,
+        ArrowRight,
+        ChevronDown,
+        Funnel,
+        UserStar,
+        Repeat,
+        Award,
+        Mail,
+        Globe,
+        MessageCircle,
+        Folder,
+        Image,
+        Calendar,
+        Images,
+        Navigation
     },
 });
 
@@ -175,6 +251,7 @@ createIcons({
     });
 })();
 
+Alpine.plugin(collapse);
 window.Alpine = Alpine;
 
 Alpine.start();
