@@ -57,8 +57,8 @@
                 <!-- Description -->
                 <div class="p-6 border-b border-gray-100">
                     <h2 class="text-lg font-semibold text-gray-900 mb-4">Description</h2>
-                    <x-form.textarea name="description" label="Description du bien *" rows="6"
-                        required>{{ $property->description }}</x-form.textarea>
+                    <x-form.textarea name="description" label="Description du bien *" rows="6" :value="$property->description"
+                        required />
                 </div>
 
                 <!-- Détails du bien -->

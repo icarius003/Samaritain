@@ -11,20 +11,31 @@
 
         {{-- Nav links --}}
         <div class="flex items-center gap-1">
-            <a href="{{ route('index') }}"
-                @class(['px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition', 'text-primary bg-primary/5' => request()->route()->getName() === 'index'])>
+            <a href="{{ route('index') }}" @class([
+                'px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition',
+                'text-primary bg-primary/5' => request()->route()->getName() === 'index',
+            ])>
                 Accueil
             </a>
-            <a href="{{ route('property.index') }}"
-                @class(['px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition', 'text-primary bg-primary/5' => request()->route()->getName() === 'property.index'])>
+            <a href="{{ route('property.index') }}" @class([
+                'px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition',
+                'text-primary bg-primary/5' =>
+                    request()->route()->getName() === 'property.index',
+            ])>
                 Maisons
             </a>
-            <a href="{{ route('parcelles.index') }}"
-                @class(['px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition', 'text-primary bg-primary/5' => request()->route()->getName() === 'parcelles.index'])>
+            <a href="{{ route('parcelles.index') }}" @class([
+                'px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition',
+                'text-primary bg-primary/5' =>
+                    request()->route()->getName() === 'parcelles.index',
+            ])>
                 Parcelles à vendre
             </a>
-            <a href="{{ route('artisans.index') }}"
-                @class(['px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition', 'text-primary bg-primary/5' => request()->route()->getName() === 'artisans.index'])>
+            <a href="{{ route('artisans.index') }}" @class([
+                'px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition',
+                'text-primary bg-primary/5' =>
+                    request()->route()->getName() === 'artisans.index',
+            ])>
                 Services
             </a>
             @if (!auth()->user())
@@ -41,6 +52,9 @@
         <div class="flex items-center gap-3">
 
             @if (auth()->user())
+                @if (auth()->user()->is_staff)
+                    <x-btn href="{{ route('admin.index') }}" style="outline">Dashboard</x-btn>
+                @endif
                 {{-- Avatar + menu --}}
                 <div x-data="{ open: false }" class="relative">
                     <button @click="open = !open" class="flex items-center gap-2 hover:opacity-80 transition">
@@ -188,8 +202,14 @@
             @endif
 
             <div class="border-t border-gray-100 my-2"></div>
+            @if (auth()->user()->is_staff)
+                <a href="{{ route('admin.index') }}" @click="isOpen = false"
+                    class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50">
+                    <i data-lucide="layout-panel-left" class="w-4 h-4 text-gray-400"></i> Dashboard
+                </a>
+            @endif
             <a href="tel:+242068007138"
-                class="flex items-center justify-center gap-2 bg-primary text-white text-sm font-semibold px-4 py-3 rounded-xl">
+                class="flex items-center mb-2 justify-center gap-2 bg-primary text-white text-sm font-semibold px-4 py-3 rounded-xl">
                 <i data-lucide="phone" class="w-4 h-4"></i> +242 06 800 71 38
             </a>
 

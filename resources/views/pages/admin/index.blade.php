@@ -126,8 +126,8 @@
                         </div>
                         <div class="text-right">
                             <p class="font-bold text-gray-800">{{ number_format($property->price, 0, ',', ' ') }} FCFA</p>
-                            <span class="text-xs px-2 py-0.5 rounded-full bg-{{ $property->status === 'available' ? 'emerald' : ($property->status === 'sold' ? 'red' : 'blue') }}-100 text-{{ $property->status === 'available' ? 'emerald' : ($property->status === 'sold' ? 'red' : 'blue') }}-600">
-                                {{ ucfirst($property->status) }}
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-{{ $property->status->value === 'available' ? 'emerald' : ($property->status->value === 'sold' ? 'red' : 'blue') }}-100 text-{{ $property->status->value === 'available' ? 'emerald' : ($property->status->value === 'sold' ? 'red' : 'blue') }}-600">
+                                {{ ucfirst($property->status->value) }}
                             </span>
                         </div>
                     </div>
@@ -197,8 +197,8 @@
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-sm font-semibold text-gray-800">{{ number_format($property->price, 0, ',', ' ') }}</span>
-                            <span class="text-xs px-2 py-0.5 rounded-full bg-{{ $property->status === 'available' ? 'emerald' : ($property->status === 'sold' ? 'red' : 'blue') }}-100 text-{{ $property->status === 'available' ? 'emerald' : ($property->status === 'sold' ? 'red' : 'blue') }}-600">
-                                {{ ucfirst($property->status) }}
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-{{ $property->status->value === 'available' ? 'emerald' : ($property->status->value === 'sold' ? 'red' : 'blue') }}-100 text-{{ $property->status->value === 'available' ? 'emerald' : ($property->status->value === 'sold' ? 'red' : 'blue') }}-600">
+                                {{ ucfirst($property->status->value) }}
                             </span>
                         </div>
                     </div>
