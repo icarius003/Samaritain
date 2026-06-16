@@ -69,4 +69,8 @@ ENV APP_ENV=production
 
 EXPOSE 8080
 
-CMD ["php", "artisan", "octane:frankenphp", "--host=0.0.0.0", "--port=8080"]
+# Générique
+# CMD ["php", "artisan", "octane:frankenphp", "--host=0.0.0.0", "--port=8080"]
+
+# Spécifique à Railway
+CMD ["sh", "-c", "php artisan octane:frankenphp --host=0.0.0.0 --port=${PORT:-8080}"]
