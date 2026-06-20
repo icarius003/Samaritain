@@ -239,7 +239,7 @@
         </div>
 
         <!-- Grille des biens -->
-        <div class="grid grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6">
             @forelse($properties as $property)
                 <x-ui.property-card :property="$property" />
             @empty
