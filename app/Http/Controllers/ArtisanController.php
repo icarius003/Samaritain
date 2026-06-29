@@ -44,8 +44,8 @@ class ArtisanController extends Controller
         $cities = Artisan::verified()->active()->distinct()->pluck('city')->filter();
 
         return view('pages.artisans.index', [
-            'artisans' => $artisans, 
-            'categories' => $categories, 
+            'artisans' => $artisans,
+            'categories' => $categories,
             'cities' => $cities,
         ]);
     }
