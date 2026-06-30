@@ -11,7 +11,6 @@ use App\Http\Controllers\ArtisanContactController;
 use App\Http\Controllers\ArtisanController;
 use App\Http\Controllers\ArtisanProjectController;
 use App\Http\Controllers\ArtisanReviewController;
-use App\Http\Controllers\ContactAgencyController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NotificationController;
@@ -104,7 +103,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/parcelles/create', [ParcelleWebController::class, 'create'])->name('parcelles.create');
     Route::post('/parcelles', [ParcelleWebController::class, 'store'])->name('parcelles.store');
     Route::get('/parcelles/{id}/edit', [ParcelleWebController::class, 'edit'])->name('parcelles.edit');
-    });
+});
 
 Route::get('/parcelles/{id}', [ParcelleWebController::class, 'show'])->name('parcelles.show');
 
@@ -171,7 +170,10 @@ Route::middleware(['auth', 'verified', StaffMiddleware::class])
         Route::resource('invitations', InvitationController::class)->except(['show', 'edit', 'update']);
         Route::post('invitations/{invitation}/resend', [InvitationController::class, 'resend'])->name('invitations.resend');
         Route::get('invitations/accept', [InvitationController::class, 'acceptForm'])->name('invitations.accept.form');
-        Route::post('invitations/accept', [InvitationController::class, 'accept'])->name('invitations.accept');
+        Route::post('invitations/{invitation}/accept', [InvitationController::class, 'accept'])
+            ->middleware('throttle:10,60')
+            ->name('invitations.accept');
+        Route::post('invitations/{invitation}/decline', [InvitationController::class, 'decline'])->name('invitations.decline');
 
         // Rôles et permissions
         Route::resource('roles', RoleController::class);

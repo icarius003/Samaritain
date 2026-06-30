@@ -3,7 +3,7 @@
 ])
 
 <a href="{{ route('property.show', ['property' => $property->id]) }}"
-    class="group flex-shrink-0 w-42 md:w-56 snap-start cursor-pointer">
+    class="group flex-shrink-0 w-44 snap-start cursor-pointer">
 
     {{-- Image --}}
     <div class="relative overflow-hidden rounded-2xl bg-gray-100" style="height: 176px;">

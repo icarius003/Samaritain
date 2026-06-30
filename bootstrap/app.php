@@ -17,7 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->trustProxies(
             at: '*'
         );
-        
+
         $middleware->api(prepend: [
             HandleCors::class,
         ]);
