@@ -24,6 +24,8 @@ use App\Http\Controllers\Socialite\ProviderRedirectController;
 use App\Http\Controllers\VisitRequestController;
 use App\Http\Middleware\StaffMiddleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AvisController;
+
 
 Route::get('/test', function () {
     return view('layouts.user-dashboard');
@@ -186,4 +188,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/notifications/destroy-all', [NotificationController::class, 'destroyAll'])->name('notifications.destroy-all');
     Route::delete('/notifications/destroy-read', [NotificationController::class, 'destroyRead'])->name('notifications.destroy-read');
     Route::get('/notifications/all', [NotificationController::class, 'showAll'])->name('notifications.all');
+});
+
+
+Route::middleware('auth')->group(function () {
+    Route::post('/avis', [AvisController::class, 'store'])->name('avis.store');
+    Route::get('/avis', [AvisController::class, 'index'])->name('avis.index');
+    Route::delete('/avis/{avis}', [AvisController::class, 'destroy'])->name('avis.destroy');
 });

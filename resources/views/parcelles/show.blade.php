@@ -75,12 +75,15 @@
                         <p class="font-bold text-gray-800" x-text="parcelle.reference"></p>
                     </div>
                     <div class="bg-gray-50 rounded-xl p-3 text-center">
-                        <p class="text-xs text-gray-500 mb-1">Viabilisée</p>
-                        <p class="font-bold" :class="parcelle.viabilisee ? 'text-emerald-600' : 'text-red-500'" x-text="parcelle.viabilisee ? 'Oui' : 'Non'"></p>
+                        <p class="text-xs text-gray-500 mb-1">prix</p>
+                        <p class="font-bold text-gray-800" x-text="parcelle.prix"></p>
+
+                       
                     </div>
                     <div class="bg-gray-50 rounded-xl p-3 text-center">
-                        <p class="text-xs text-gray-500 mb-1">Titre foncier</p>
-                        <p class="font-bold text-gray-800" x-text="parcelle.titre_foncier || 'N/A'"></p>
+                        <p class="text-xs text-gray-500 mb-1">Quartier</p>
+                        <p class="font-bold text-gray-800" x-text="parcelle.quartier"></p>
+
                     </div>
                 </div>
             </div>
@@ -95,7 +98,7 @@
             <div class="flex items-center gap-3">
                 
                    <a :href="'/parcelles/' + parcelle.id + '/edit'"
-                    class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-2.5 rounded-xl transition-colors duration-200 flex items-center gap-2"
+                    class="bg-primary hover:bg-primary-700 text-white font-semibold px-6 py-2.5 rounded-xl transition-colors duration-200 flex items-center gap-2"
                 >
                     <i data-lucide="pencil" class="w-4 h-4"></i>
                     Modifier

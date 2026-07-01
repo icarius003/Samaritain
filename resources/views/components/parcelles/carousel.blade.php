@@ -10,28 +10,36 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
 
             {{-- Ville --}}
-            <div class="flex flex-col gap-1">
-                <label class="text-xs font-semibold text-gray-500 dark:text-gray-400">Ville</label>
-                <input
-                    type="text"
-                    x-model="filtres.ville"
-                    @input.debounce.400ms="chargerParcelles()"
-                    placeholder="Ex: Brazzaville"
-                    class="border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                />
-            </div>
 
-            {{-- Quartier --}}
-            <div class="flex flex-col gap-1">
-                <label class="text-xs font-semibold text-gray-500 dark:text-gray-400">Quartier</label>
+             <div class="flex flex-col gap-1">
+                <label class="text-xs font-semibold text-gray-500 dark:text-gray-400">Ville</label>
                 <select
-                    x-model="filtres.viabilisee"
+                    x-model="filtres.ville"
                     @change="chargerParcelles()"
                     class="border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                     <option value="">Tous</option>
-                    <option value="1">Makélékélé</option>
-                    <option value="0">Bacongo</option>
+                    <option value="Brazzaville">Brazzaville</option>
+                    <option value="Pointe-Noire">Pointe-Noire</option>
+                    
+                </select>
+            </div>
+
+          
+            {{-- Quartier --}}
+            <div class="flex flex-col gap-1">
+                <label class="text-xs font-semibold text-gray-500 dark:text-gray-400">Quartier</label>
+                <select
+                    x-model="filtres.quartier"
+                    @change="chargerParcelles()"
+                    class="border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                >
+                    <option value="">Tous</option>
+                    <option value="Makélékélé">Makélékélé</option>
+                    <option value="Bacongo">Bacongo</option>
+                    <option value="Poto-poto">Poto-poto</option>
+                    <option value="Moungali">Moungali</option>
+                    <option value="Ouenze">Ouenze</option>
                 </select>
             </div>
 
@@ -50,20 +58,7 @@
                 </select>
             </div>
 
-            {{-- Viabilisée --}}
-            {{-- <div class="flex flex-col gap-1">
-                <label class="text-xs font-semibold text-gray-500 dark:text-gray-400">Viabilisée</label>
-                <select
-                    x-model="filtres.viabilisee"
-                    @change="chargerParcelles()"
-                    class="border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                >
-                    <option value="">Toutes</option>
-                    <option value="1">Oui</option>
-                    <option value="0">Non</option>
-                </select>
-            </div> --}}
-
+           
             {{-- Prix min --}}
             <div class="flex flex-col gap-1">
                 <label class="text-xs font-semibold text-gray-500 dark:text-gray-400">Prix min (FCFA)</label>
@@ -214,7 +209,7 @@
 
                         <div class="flex items-center justify-between mt-1">
                             <span class="text-sm text-gray-600 dark:text-gray-400" x-text="formatSuperficie(parcelle.superficie)"></span>
-                            <span class="text-xs text-gray-400" x-text="parcelle.reference"></span>
+                            {{-- <span class="text-xs text-gray-400" x-text="parcelle.reference"></span> --}}
                         </div>
 
                         <div class="mt-auto pt-3 border-t border-gray-100 dark:border-gray-700">

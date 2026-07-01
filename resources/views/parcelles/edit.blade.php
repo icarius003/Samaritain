@@ -24,7 +24,7 @@
 
         {{-- Chargement --}}
         <div x-show="chargement" class="flex justify-center items-center py-16">
-            <svg class="animate-spin w-8 h-8 text-emerald-500" fill="none" viewBox="0 0 24 24">
+            <svg class="animate-spin w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
             </svg>
@@ -50,7 +50,7 @@
                     type="text"
                     x-model="form.titre"
                     placeholder="Ex: Grande parcelle résidentielle"
-                    class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 />
             </div>
 
@@ -61,7 +61,7 @@
                     x-model="form.description"
                     rows="3"
                     placeholder="Décrivez la parcelle..."
-                    class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none"
+                    class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                 ></textarea>
             </div>
 
@@ -73,7 +73,7 @@
                         type="text"
                         x-model="form.ville"
                         placeholder="Ex: Brazzaville"
-                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                 </div>
                 <div class="flex flex-col gap-1">
@@ -82,7 +82,7 @@
                         type="text"
                         x-model="form.quartier"
                         placeholder="Ex: Bacongo"
-                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                 </div>
                 <div class="flex flex-col gap-1">
@@ -91,7 +91,7 @@
                         type="text"
                         x-model="form.localisation"
                         placeholder="Ex: Nord de Bacongo"
-                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                 </div>
             </div>
@@ -104,7 +104,7 @@
                         type="number"
                         x-model="form.superficie"
                         min="1"
-                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                 </div>
                 <div class="flex flex-col gap-1">
@@ -113,7 +113,7 @@
                         type="number"
                         x-model="form.prix"
                         min="0"
-                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                 </div>
             </div>
@@ -124,40 +124,25 @@
                     <label class="text-sm font-semibold text-gray-700">Statut</label>
                     <select
                         x-model="form.statut"
-                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     >
                         <option value="disponible">Disponible</option>
                         <option value="vendu">Vendu</option>
                         <option value="réservé">Réservé</option>
                     </select>
                 </div>
-                <div class="flex flex-col gap-1">
+                {{-- <div class="flex flex-col gap-1">
                     <label class="text-sm font-semibold text-gray-700">Titre foncier</label>
                     <input
                         type="text"
                         x-model="form.titre_foncier"
                         placeholder="Ex: TF-12345"
-                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     />
-                </div>
+                </div> --}}
             </div>
 
-            {{-- Viabilisée toggle --}}
-            <div class="flex items-center gap-3">
-                <button
-                    type="button"
-                    @click="form.viabilisee = !form.viabilisee"
-                    :class="form.viabilisee ? 'bg-emerald-500' : 'bg-gray-200'"
-                    class="relative w-11 h-6 rounded-full transition-colors duration-200"
-                >
-                    <span
-                        :class="form.viabilisee ? 'translate-x-5' : 'translate-x-1'"
-                        class="absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform duration-200"
-                    ></span>
-                </button>
-                <label class="text-sm font-semibold text-gray-700">Parcelle viabilisée</label>
-            </div>
-
+            
             {{-- Images existantes --}}
             <div class="flex flex-col gap-2">
                 <label class="text-sm font-semibold text-gray-700">Images existantes</label>
@@ -171,7 +156,7 @@
                                 @click="supprimerImage(image.id)"
                                 class="absolute top-1 right-1 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                             >✕</button>
-                            <span x-show="image.principale" class="absolute bottom-1 left-1 bg-emerald-500 text-white text-xs px-1.5 py-0.5 rounded-full">
+                            <span x-show="image.principale" class="absolute bottom-1 left-1 bg-primary text-white text-xs px-1.5 py-0.5 rounded-full">
                                 Principale
                             </span>
                         </div>
@@ -183,7 +168,7 @@
             <div class="flex flex-col gap-2">
                 <label class="text-sm font-semibold text-gray-700">Ajouter des images</label>
                 <div
-                    class="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-emerald-400 transition-colors"
+                    class="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-primary transition-colors"
                     @click="$refs.fileInput.click()"
                     @dragover.prevent
                     @drop.prevent="handleDrop($event)"
@@ -220,7 +205,7 @@
                     type="button"
                     @click="soumettre()"
                     :disabled="chargement"
-                    class="bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-semibold px-6 py-2.5 rounded-xl transition-colors duration-200 flex items-center gap-2"
+                    class="bg-primary hover:bg-orange-100 disabled:opacity-50 text-white font-semibold px-6 py-2.5 rounded-xl transition-colors duration-200 flex items-center gap-2"
                 >
                     <svg x-show="chargement" class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
@@ -228,7 +213,7 @@
                     </svg>
                     <span x-text="chargement ? 'Enregistrement...' : 'Enregistrer'"></span>
                 </button>
-                <a :href="'/parcelles/' + id" class="text-sm text-gray-500 hover:text-gray-700 transition-colors">
+                <a :href="'/parcelles/' + id" class="rounded-xl  flex justify-center items-center text-sm bg-red-50 w-20 h-10 text-red hover:bg-red-100 text-red-600 transition-colors">
                     Annuler
                 </a>
             </div>
